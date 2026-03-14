@@ -15,7 +15,6 @@ export default function CollectionPage() {
     const [visibleCount, setVisibleCount] = useState(8);
 
     // Get products for this collection
-    console.log('CollectionPage render - slug:', slug);
     let collectionProducts;
     if (slug === 'new-arrivals') {
         collectionProducts = getNewArrivals();
@@ -24,11 +23,9 @@ export default function CollectionPage() {
     } else {
         collectionProducts = getProductsByCategory(slug);
     }
-    console.log('CollectionPage - collectionProducts count:', collectionProducts?.length);
 
     // If no specific products found, show all
-    if (collectionProducts.length === 0 && slug) {
-        console.log('CollectionPage - No specific products found, showing allProducts');
+    if (collectionProducts.length === 0) {
         collectionProducts = allProducts;
     }
 
