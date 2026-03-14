@@ -18,13 +18,13 @@ export default function RootLayout({ children }) {
       <body>
         <CartProvider>
           <ScrollManager />
-          <SmoothScroll>
+          {/* <SmoothScroll> */}
             <div className="mainWrapper">
               <Header />
               <main>{children}</main>
               <Footer />
             </div>
-          </SmoothScroll>
+          {/* </SmoothScroll> */}
         </CartProvider>
       </body>
     </html>
