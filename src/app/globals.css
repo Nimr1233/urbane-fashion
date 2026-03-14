@@ -1,33 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Tokens - The "Template" Layer */
+  --brand-primary: #008060;
+  --brand-secondary: #111111;
+  --brand-accent: #ff4d4d;
+  --brand-bg: #ffffff;
+
+  /* Layout & System */
+  --max-width: 1440px;
+  --content-padding: 24px;
+  --header-height: 80px;
+  --announcement-height: 36px;
+
+  /* Colors */
+  --color-white: #ffffff;
+  --color-black: var(--brand-secondary);
+  --color-bg: var(--brand-bg);
+  --color-grey-50: #f9f9f9;
+  --color-grey-100: #f1f1f1;
+  --color-grey-200: #e5e5e5;
+  --color-grey-300: #d4d4d4;
+  --color-grey-400: #a3a3a3;
+  --color-grey-500: #737373;
+  --color-grey-600: #525252;
+  --color-red: var(--brand-accent);
+  --color-teal: var(--brand-primary);
+
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-elegant: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-minimalist: 'Instrument Sans', 'Outfit', sans-serif;
+
+  --announcement-height: 36px;
+  --max-width: 1400px;
+  --content-padding: 16px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  --z-announcement: 100;
+  --z-header: 200;
+  --z-dropdown: 300;
+  --z-drawer: 400;
+  --z-overlay: 500;
+  --z-cart: 600;
+  --z-modal: 700;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+body {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-black);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
 }
 
 a {
@@ -35,8 +87,198 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Main content wrapper with rounded corners - matching the "app-like" aesthetic */
+.mainWrapper {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: clip; /* clip instead of hidden to allow sticky to work while keeping rounded corners if possible */
+  margin: 0 auto;
+  max-width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+@media (min-width: 1440px) {
+  .mainWrapper {
+    margin: 20px auto;
+    max-width: 1600px;
+    border: 1px solid var(--color-grey-200);
+  }
+}
+
+/* Container utility */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+/* Section spacing */
+.section {
+  padding: 48px 0;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Button styles */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--radius-sm);
+  transition: opacity var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+
+.btnPrimary:hover {
+  opacity: 0.85;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: var(--color-white);
+  color: var(--color-black);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-black);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  width: 100%;
+}
+
+.btnSecondary:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Visually hidden */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-grey-300);
+  border-radius: 3px;
+}
+
+/* Page transition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pageEnter {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Body lock when drawer is open */
+body.drawerOpen {
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --content-padding: 24px;
+    --header-height: 64px;
+  }
+
+  .sectionTitle {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --content-padding: 40px;
   }
 }

@@ -1,0 +1,117 @@
+.section {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+    color: var(--color-black);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.card {
+    text-decoration: none;
+    display: block;
+}
+
+.cardInner {
+    background: #fdfdfd; /* Even lighter gray */
+    padding: 40px;
+    border-radius: 24px;
+    height: 100%;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center align for a cleaner look */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.cardInner:hover {
+    background: var(--color-black);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+}
+
+.cardInner:hover .cardTitle,
+.cardInner:hover .cardDescription {
+    color: var(--color-white);
+}
+
+.cardTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 12px;
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    transition: color 0.4s ease;
+}
+
+.cardTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-black);
+    transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    transform: translateX(-50%);
+}
+
+.cardInner:hover .cardTitle::after {
+    width: 80%;
+    background: var(--color-white);
+}
+
+.cardDescription {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.6;
+    z-index: 2;
+    max-width: 280px;
+    transition: color 0.4s ease;
+}
+
+.cardBg {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+@media (min-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

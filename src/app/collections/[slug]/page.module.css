@@ -1,0 +1,234 @@
+.page {
+    min-height: 60vh;
+    padding-bottom: 80px;
+}
+
+/* Header */
+.header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--color-grey-200);
+}
+
+.headerInner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+}
+
+.breadcrumbs {
+    font-size: 12px;
+    color: var(--color-grey-400);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.breadcrumbs a:hover {
+    color: var(--color-black);
+}
+
+.current {
+    color: var(--color-black);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.description {
+    font-size: 14px;
+    color: var(--color-grey-500);
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto 4px auto;
+    text-align: center;
+}
+
+.count {
+    font-size: 12px;
+    color: var(--color-grey-400);
+    text-align: center;
+    display: block;
+}
+
+/* Content */
+.content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 24px var(--content-padding);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.loadMore {
+    display: flex;
+    justify-content: center;
+    padding: 32px 0 16px;
+}
+
+.loadMoreBtn {
+    padding: 12px 40px;
+    border: 1.5px solid var(--color-black);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-black);
+    transition: all var(--transition-fast);
+}
+
+.loadMoreBtn:hover {
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+/* Filter bar */
+.filterBar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--z-header);
+}
+
+.filterBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--color-black);
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-fast);
+}
+
+.filterBtn:hover {
+    transform: scale(1.05);
+}
+
+/* Sort Drawer */
+.sortOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-cart);
+}
+
+.sortDrawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    z-index: calc(var(--z-cart) + 1);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding: 24px;
+    max-height: 60vh;
+    animation: slideDrawerUp 0.3s ease forwards;
+}
+
+.sortHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.sortHeader h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.sortHeader button {
+    color: var(--color-grey-400);
+}
+
+.sortOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.sortOption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-grey-500);
+    border-bottom: 1px solid var(--color-grey-100);
+    text-align: left;
+    width: 100%;
+    transition: color var(--transition-fast);
+}
+
+.sortOption:hover {
+    color: var(--color-black);
+}
+
+.sortActive {
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+@keyframes slideDrawerUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .title {
+        font-size: 36px;
+        text-align: left;
+    }
+
+    .breadcrumbs {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .description {
+        margin: 0 0 4px 0;
+        text-align: left;
+    }
+
+    .count {
+        text-align: left;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

@@ -1,0 +1,215 @@
+.footer {
+    background: var(--color-dark);
+    color: var(--color-white);
+    padding: 48px 0 24px;
+}
+
+.inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+}
+
+.grid {
+    display: grid;
+    gap: 0;
+}
+
+.column {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.colTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.colTitleStatic {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 16px 0 12px;
+    text-align: center;
+}
+
+.chevron {
+    transition: transform var(--transition-fast);
+    display: block;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.colContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+}
+
+.expanded {
+    max-height: 400px;
+    text-align: center;
+}
+
+.link {
+    display: block;
+    padding: 6px 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color var(--transition-fast);
+}
+
+.link:hover {
+    color: var(--color-white);
+}
+
+.aboutText {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.newsletterText {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.newsletterForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin: 0 auto 16px auto;
+    max-width: 300px;
+}
+
+.emailInput {
+    flex: 1;
+    padding: 12px 14px;
+    background: transparent;
+    color: var(--color-white);
+    font-size: 13px;
+}
+
+.emailInput::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: var(--color-white);
+    transition: opacity var(--transition-fast);
+}
+
+.submitBtn:hover {
+    opacity: 0.7;
+}
+
+/* Bottom */
+.bottom {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.badge {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.copyright {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1.5fr 1fr;
+        gap: 40px;
+    }
+
+    .column {
+        border-bottom: none;
+    }
+
+    .chevron {
+        display: none;
+    }
+
+    .colTitle {
+        cursor: default;
+        padding: 0 0 16px;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .colTitleStatic {
+        text-align: left;
+    }
+
+    .aboutText,
+    .contact,
+    .newsletterText,
+    .expanded {
+        text-align: left;
+    }
+
+    .contact {
+        align-items: flex-start;
+    }
+
+    .newsletterForm {
+        margin: 0 0 16px 0;
+        max-width: none;
+    }
+
+    .colContent {
+        max-height: none;
+        overflow: visible;
+    }
+}
