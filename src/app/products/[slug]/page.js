@@ -69,7 +69,9 @@ export default function ProductPage() {
                 <div className={styles.breadcrumbsInner}>
                     <Link href="/">Home</Link>
                     <span className={styles.sep}>/</span>
-                    <Link href={`/collections/${product.category}`}>{product.category.replace(/-/g, ' ')}</Link>
+                    <Link href={`/collections/${product.category}`}>
+                        {product.category?.replace ? product.category.replace(/-/g, ' ') : 'Collection'}
+                    </Link>
                     <span className={styles.sep}>/</span>
                     <span className={styles.current}>{product.title}</span>
                 </div>

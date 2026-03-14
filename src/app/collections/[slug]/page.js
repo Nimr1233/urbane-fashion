@@ -52,6 +52,8 @@ export default function CollectionPage() {
         setSortOpen(false);
     };
 
+    const displayName = collection?.title || (slug?.replace ? slug.replace(/-/g, ' ') : 'Collection');
+
     return (
         <div className={`${styles.page} pageEnter`}>
             {/* Header */}
@@ -61,11 +63,11 @@ export default function CollectionPage() {
                         <Link href="/">Home</Link>
                         <span>/</span>
                         <span className={styles.current}>
-                            {collection?.title || slug.replace(/-/g, ' ')}
+                            {displayName}
                         </span>
                     </div>
                     <h1 className={styles.title}>
-                        {collection?.title || slug.replace(/-/g, ' ')}
+                        {displayName}
                     </h1>
                     {collection?.description && (
                         <p className={styles.description}>{collection.description}</p>
